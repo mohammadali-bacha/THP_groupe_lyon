@@ -19,7 +19,7 @@ CONSIGNES
 <<<<<<< HEAD
 
 
-Pour cet excercice il nous faut créer un programme pour scrapper les nom et mails des mairies de trois départements, leurs envoyer des mails pour faire un peu de pub et les twitter pour bien les spammer .
+Pour cet exercice il  faut créer un programme pour scrapper les nom et mails des mairies de trois départements, leurs envoyer des mails pour faire un peu de pub et les twitter pour bien les spammer .
 
 
 
@@ -30,9 +30,10 @@ Pour l'utiliser:
 1yqWCFEruHoYZivjpH8usza9NaySHgy1BvNLZhyiH-IU
 =======
 
-Pour cet excercice il nous faut créer un programme pour scrapper les nom et mails des mairies de trois départements, leurs envoyer des mails pour faire un peu de pub et les twitter pour bien les spammer .
+Creer un programme pour scrapper les nom et mails des mairies de trois départements, leurs envoyer des mails pour faire un peu de pub et les twitter pour bien les spammer .
 
-Afin de fonctionner avec vos identifiants vous dervrez creer un fichier .env et le renseigner avec vos login perso comme suit :
+Afin de fonctionner avec vos identifiants vous devrez creer un fichier .env et le renseigner avec vos login perso comme suit :
+
 #pour twitter:
 consumerkey="XXXXXXX"
 consumersecret="XXXXXXX"
@@ -74,7 +75,7 @@ Ce programme permet d'envoyer un mail à toute les adresses regroupées sur le s
 -
 
 3.Twitter
-Pas suffisemment eu de temps pour terminer, le programme se content de rechercher tous les comptes ayant twitter recemement contenant le mot "MAIRIES"  et de les ajouter.
+Pas suffisemment eu de temps pour terminer, le programme se contente de rechercher tous les comptes ayant recemement twitté & contenant le mot "MAIRIE"  & de les ajouter.
 
 
 
