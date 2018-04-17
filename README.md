@@ -41,6 +41,6 @@ Infos sur les exos a partager :
 ## Slack des contributeurs :
 
 * Mohammad-Ali : @Mohammad-Ali
-* Odyssée Levine : @
-* David Coat : @
+* Odyssée Levine : @Odyssée Levine 
+* David Coat : @Coat David 
 * Hugo : @Hugo
