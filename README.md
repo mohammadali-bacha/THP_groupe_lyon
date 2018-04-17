@@ -29,17 +29,28 @@ Pour l'utiliser:
 Pour cet excercice il nous faut créer un programme pour scrapper les nom et mails des mairies de trois départements, leurs envoyer des mails pour faire un peu de pub et les twitter pour bien les spammer .
 
 Afin de fonctionner avec vos identifiants vous dervrez creer un fichier .env et le renseigner avec vos login perso comme suit :
-
+#pour twitter:
 consumerkey="XXXXXXX"
 consumersecret="XXXXXXX"
 token="XXXXXXXXX"
 tokensecret="XXXXXXXXX"
 
-
+#pour Gmail:
 gmail_adress="XXXXXXX"
 gmail_pwd="XXXXXXX"
 
-En cas de problème de connexion, n'hésitez pas à nous contacter !
+Ainsi qu'un fichier config.json avec vos identifiants Gdrive
+
+{
+  "client_id": "XXXXXXX",
+  "client_secret": "XXXXXXX",
+  "scope": [
+    "https://www.googleapis.com/auth/drive",
+    "https://spreadsheets.google.com/feeds/"
+  ],
+  "refresh_token": "XXXXXXXXXXX"
+}
+
 
 
 
@@ -59,8 +70,7 @@ Ce programme permet d'envoyer un mail à toute les adresses regroupées sur le s
 -
 
 3.Twitter
-Ce programme enverra une annonce twitter à toutes les mairies regroupées dans le spreadsheet. Ce basant sur le nom de celles-ci, il vous permettra de les twitter à loisir.
--il suffit de le lancer sur Ruby.
+Pas suffisemment eu de temps pour terminer, le programme se content de rechercher tous les comptes ayant twitter recemement contenant le mot "MAIRIES"  et de les ajouter.
 
 
 
