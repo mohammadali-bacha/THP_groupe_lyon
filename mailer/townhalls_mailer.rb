@@ -1,36 +1,37 @@
-require 'dotenv'
-Dotenv.load('../file.env')
+require 'dotenv/load'
 require 'gmail'
 require "google_drive"
+require 'json'
+require 'gmail'
 
-def send_email_to_line(i) # méthode pour envoyer le mail à la ligne i de notre google spreadsheet
-	Gmail.connect(ENV['gmail_adress'],ENV['gmail_pwd']) do |gmail| #connexion à mon compte gmail via file.env
 
-	session = GoogleDrive::Session.from_config("config.json") #connexion à ma google spreadhseet via config.json
-	ws = session.spreadsheet_by_key("1yqWCFEruHoYZivjpH8usza9NaySHgy1BvNLZhyiH-IU").worksheets[0]
+# Methode envoit d'emails a partir d'une spreadsheet Gdrive
+def go_through_all_the_lines
 
-	name = "Gauthier" # mon nom qui apparaît dans le corps du mail
-	nom_commune = ws[i,1] #nom de la commune pour pouvoir l'appeler dans le corps du mail
-	dep = ws[i,3] #numéro du département pour l'appeler dans le corps du mail
+# Connexion spreadsheet via config.json
+  session = GoogleDrive::Session.from_config("config.json")
+  ws = session.spreadsheet_by_key("1yqWCFEruHoYZivjpH8usza9NaySHgy1BvNLZhyiH-IU").worksheets[0]
 
-	gmail.deliver do #envoi du mail
-  		to ws[i,2] # envoi à l'adresse contenue dans la 2e colonne
-  		subject "The hacking project: l'éducation 2.0 pour tous"
+#boucle pour selectionner email des villes
+    (2..ws.num_rows).each do |row|
+			emails = ws[row,3]
 
-  		html_part do
-   		 	content_type 'text/html; charset=UTF-8'
-    		body "<p>Bonjour,</p><br/> <p>Je m'appelle #{name}, je suis élève à <strong>The Hacking Project</strong>, une formation au code <strong>gratuite, sans locaux, sans sélection, sans restriction géographique</strong>.<br/> La pédagogie de notre école est celle du peer-learning, où nous travaillons par petits groupes sur des projets concrets qui font apprendre le code.<br/> Le projet du jour est d'envoyer (avec du codage) des emails aux mairies pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.</p> <br/>
-<p>Déjà 300 personnes sont passées par The Hacking Project.</p> <br/> <p>Est-ce que la mairie de #{nom_commune} veut changer le monde avec nous ?</p> <p>Charles, co-fondateur de The Hacking Project pourra répondre à toutes vos questions : 06.95.46.60.80</p> <br/> <p> Profitez bien des beaux jours qui arrivent, j'espère qu'il fait beau dans le #{dep}! </p>"
-  		end
-	end
 
-	end
+# Connexion a Gmail via .env & envoit des emails
+      Gmail.connect(ENV['gmail_adress'], ENV['gmail_pwd']) do |gmail|
+          email = gmail.compose do
+            to "#{emails}"
+            subject "The Hacking Project"
+            html_part do
+              content_type 'text/html; charset=UTF-8'
+              body "<p>Bonjour,</p>
+              <p>Je m'appelle Hugo, je suis élève à The Hacking Project, une formation à la programmation informatique gratuite, sans locaux, sans sélection, sans restriction géographique.</p>
+                <p>Pour en savoir plus sur notre formation, n'hésitez pas à contacter Charles Dacquay, co-fondateur de The Hacking Project, qui pourra répondre à toutes vos questions : 06.95.46.60.80 </p>
+								<p>Excellente journée !</p>"
+            end
+          end
+          gmail.deliver(email)
+        end
+    end
 end
-
-def go_through_all_the_lines #méthode pour envoyer le mail à toutes les lignes de notre Google spreadsheet
-	for a in 1..5 do #chiffre max foireux
-		send_email_to_line(a) #envoie le mail à chaque ligne
-	end
-end
-
 go_through_all_the_lines
