@@ -43,4 +43,4 @@ Infos sur les exos a partager :
 * Mohammad-Ali : @Mohammad-Ali
 * Odyssée Levine : @
 * David Coat : @
-* Hugo : @g
+* Hugo : @Hugo
