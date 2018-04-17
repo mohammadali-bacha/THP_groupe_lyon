@@ -33,10 +33,10 @@ Infos sur les exos a partager :
 
 ## Contributors with peer-learning :
 
-* Mohammad-Ali
-* Odssey
-* oseus
-* Hug-O
+* Mohammad-Ali: https://github.com/mohammadali-bacha
+* Odssey: https://github.com/Odssey
+* oseus: https://github.com/oseus
+* Hug-O: https://github.com/Hug-O
 
 ## Slack des contributeurs :
 
